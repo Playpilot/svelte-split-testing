@@ -1,0 +1,46 @@
+<script>
+  import { BROWSER } from 'esm-env'
+  import { prng_alea as seedrandom } from 'esm-seedrandom'
+  import { getContext, onMount } from 'svelte'
+
+  // Key to identify this split test. This is the name you will see in GTM.
+  export let key = 'Some Key'
+
+  // Different variants to be used in the split test. The actual names don't matter,
+  // but they will help you identify the shown variant in GTM.
+  export let variants = ['Variant A', 'Variant B']
+
+  const identifier = getContext('splitTestingIdentifier')
+
+  // Generate a random number based on a seed, meaning it will always be
+  // the same outcome as long as the identifier is the same..
+  // The key is also included to prevent one user from always seeing test A
+  // for every test case.
+  const randomized = seedrandom(identifier + key).quick()
+  const index = Math.floor(randomized * variants.length)
+
+  $: force = getParam()
+  $: variant = force || variants[index]
+
+  onMount(() => {
+    if (BROWSER) performAction('view')
+  })
+
+  // Get the "force-split-test" param from the current url to override the shown
+  // variant. This only works client side, you might see a different variant SSR.
+  function getParam() {
+    if (!BROWSER) return
+
+    const queryString = window.location.search
+    const searchParams = new URLSearchParams(queryString)
+    return searchParams.get('force-split-test')
+  }
+
+  // Send an event to GTM
+  function performAction(action = 'click') {
+    window.dataLayer = window.dataLayer || []
+    window.dataLayer.push({ event: 'Split Test', action, label: key, value: variant })
+  }
+</script>
+
+<slot {variant} {performAction} />
