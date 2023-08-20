@@ -5,6 +5,9 @@
 
   // Key to identify this split test. This is the name you will see in GTM.
   export let key = 'Some Key'
+  // Optional function to be calling the view tracking action to override
+  // the default GTM action
+  export let onView = null
 
   // Different variants to be used in the split test. The actual names don't matter,
   // but they will help you identify the shown variant in GTM.
@@ -23,7 +26,8 @@
   $: variant = force || variants[index]
 
   onMount(() => {
-    if (BROWSER) performAction('view')
+    if (typeof onView === "function") onView({ key, variant })
+    else performAction('view')
   })
 
   // Get the "force-split-test" param from the current url to override the shown
@@ -38,6 +42,7 @@
 
   // Send an event to GTM
   function performAction(action = 'click') {
+    if (!BROWSER) return
     window.dataLayer = window.dataLayer || []
     window.dataLayer.push({ event: 'Split Test', action, label: key, value: variant })
   }
