@@ -35,9 +35,12 @@
   function getParam() {
     if (!BROWSER) return
 
-    const queryString = window.location.search
-    const searchParams = new URLSearchParams(queryString)
-    return searchParams.get('force-split-test')
+    const searchParams = new URLSearchParams(window.location.search)
+    const param = searchParams.get('force-split-test')
+
+    if (!param) return
+
+    if (variants.includes(param)) return param
   }
 
   // Send an event to GTM
