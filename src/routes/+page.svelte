@@ -141,7 +141,6 @@ export async function load(&#123; <mark>data</mark> &#125;) &#123;
   </div>
 
   <div class="block">
-
     <h3>Svelte (without Kit)</h3>
 
     <p>For Svelte (without Kit) we do not yet need any set up. There might be some set up depending on your needs, but we will get to that in the Usage section.</p>
@@ -149,6 +148,12 @@ export async function load(&#123; <mark>data</mark> &#125;) &#123;
 
   <div class="block">
     <h2>Usage</h2>
+
+    <code class="well">
+      import &#123; <mark>SplitTest</mark> &#125; from <mark class="string">'svelte-split-testing'</mark><br>
+      <br>
+      &lt;<mark>SplitTest</mark>&gt;...&lt;/<mark>SplitTest</mark>&gt;
+    </code>
 
 		<p>At it's most basic <code>SplitTest</code> is a wrapper component that takes care of some business, but for you as the user it's really just a slot. This components has a slot prop called <code>variant</code>, this will be used by you to determine what is shown in what variant.</p>
 		<p>When using the component there's 2 important props: <code>key</code> and <code>variants</code>.</p>
