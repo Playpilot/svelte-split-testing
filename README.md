@@ -1,58 +1,68 @@
-# create-svelte
+# Svelte Split Testing
 
-Everything you need to build a Svelte library, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
+[![npm version](https://badgen.net/npm/v/svelte-split-testing)](https://www.npmjs.com/package/svelte-split-testing)
+[![npm downloads](https://badgen.net/npm/dt/svelte-split-testing)](https://www.npmjs.com/package/svelte-split-testing)
+[![bundle size](https://badgen.net/bundlephobia/minzip/svelte-split-testing)](https://bundlephobia.com/package/svelte-split-testing)
 
-Read more about creating a library [in the docs](https://kit.svelte.dev/docs/packaging).
+Run Split Tests (or A/B tests) with the power of Svelte(Kit). Split tests (or A/B tests) allow you to display different features or variants to test their effectiveness. Unfortunately popular options are very pricey, bloated, and don't work SSR. This package attempts to remedy all of that.
 
-## Creating a project
+This package works with Svelte and SvelteKit.
 
-If you're seeing this, you've probably already done this step. Congrats!
+- Works SSR
+- Works with or without Kit
+- Works with GTM and GA4, or any other analytics solution
+- Lightweight
+- Free, of course
 
-```bash
-# create a new project in the current directory
-npm create svelte@latest
+**Demo and Docs**: https://svelte-split-testing.vercel.app/
 
-# create a new project in my-app
-npm create svelte@latest my-app
+### Installation
+
+Install using Yarn or NPM.
+```js
+yarn add svelte-split-testing
+```
+```js
+npm install --save-dev svelte-split-testing
 ```
 
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
-```bash
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
+Include the component in your app.
+```js
+import { SplitTest } from "svelte-split-testing"
+```
+```svelte
+<SplitTest>...</SplitTest>
 ```
 
-Everything inside `src/lib` is part of your library, everything inside `src/routes` can be used as a showcase or preview app.
+### Configuration
 
-## Building
+For more configuration refer to the documentation: https://svelte-split-testing.vercel.app/
 
-To build your library:
+#### Properties
 
-```bash
-npm run package
-```
+This is a list of all configurable properties for each component and function.
 
-To create a production version of your showcase app:
+##### SplitTest
 
-```bash
-npm run build
-```
+| Property | Default | Description |
+| --- | --- | --- |
+| key | 'Some Key' | Key used to identify the current Split Test. This is primary used during analytics tracking. |
+| variants | ['Variant A', 'Variant B'] | An array of variant names. Can be as many variants as you like. What the names are is not important, but they show up during analytics tracking. |
+| onView | null | Optional function to be passed to track views of the current variant. Replaces the default GTM method. |
 
-You can preview the production build with `npm run preview`.
+##### serverGetSplitTestingIdentifier
 
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+| Property | Default | Description |
+| --- | --- | --- |
+| serverCookies | null | Cookies object as served from +layout.server.js during SSR. |
+| options | &#123; userIdentifier, cookieName &#125; | Object of configurable options |
+| options.userIdentifier | null | An optional user identifier to use as the identifier. This is used to show a user the same split test across different devices, as long as they have the same identifier. If an identifier was already set before the user identifier |was given the original cookie will be used instead. Be aware that this value will be saved in the cookie as a plain string. Do not use any data that you might not want to be public. |
+| options.cookieName | 'splitTestIdentifier' | The name of the cookie used to store the split testing identifier. |
 
-## Publishing
+##### clientGetSplitTestingIdentifier
 
-Go into the `package.json` and give your package the desired name through the `"name"` option. Also consider adding a `"license"` field and point it to a `LICENSE` file which you can create from a template (one popular option is the [MIT license](https://opensource.org/license/mit/)).
-
-To publish your library to [npm](https://www.npmjs.com):
-
-```bash
-npm publish
-```
+| Property | Default | Description |
+| --- | --- | --- |
+| options | &#123; userIdentifier, cookieName &#125; | Object of configurable options |
+| options.userIdentifier | null | An optional user identifier to use as the identifier. This is used to show a user the same split test across different devices, as long as they have the same identifier. If an identifier was already set before the user identifier |was given the original cookie will be used instead. Be aware that this value will be saved in the cookie as a plain string. Do not use any data that you might not want to be public. |
+| options.cookieName | 'splitTestIdentifier' | The name of the cookie used to store the split testing identifier. |
