@@ -1,7 +1,7 @@
 export async function load({ data }) {
-  const { splitTestingIdentifier } = data || {}
+  const { splitTestIdentifier } = data || {}
 
   return {
-    splitTestingIdentifier,
+    splitTestIdentifier,
   }
 }

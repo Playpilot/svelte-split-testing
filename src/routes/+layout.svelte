@@ -3,7 +3,7 @@
 
   export let data
 
-  setContext('splitTestingIdentifier', data?.splitTestingIdentifier)
+  setContext('splitTestIdentifier', data?.splitTestIdentifier)
 </script>
 
 <slot />

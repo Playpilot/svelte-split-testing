@@ -14,7 +14,7 @@ const oneYear = 365 * 864e5
  * @param {string} options.cookieName - The name of the cookie used to store the split testing identifier.
  * @returns {string} The split testing identifier for the user.
  */
-export function serverGetSplitTestingIdentifier(serverCookies, { userIdentifier = null, cookieName = 'splitTestIdentifier' } = {}) {
+export function serverGetSplitTestIdentifier(serverCookies, { userIdentifier = null, cookieName = 'splitTestIdentifier' } = {}) {
   let identifier = serverCookies.get(cookieName)
 
   if (identifier) return identifier
@@ -41,20 +41,20 @@ export function serverGetSplitTestingIdentifier(serverCookies, { userIdentifier 
  * @param {string} options.cookieName - The name of the cookie used to store the split testing identifier.
  * @returns {string} The split testing identifier for the user.
  */
-export function clientGetSplitTestingIdentifier({ userIdentifier = null, cookieName = 'splitTestIdentifier' } = {}) {
+export function clientGetSplitTestIdentifier({ userIdentifier = null, cookieName = 'splitTestIdentifier' } = {}) {
   if (!BROWSER) return
 
-  let identifier = clientGetSplitTestingCookie(cookieName)
+  let identifier = clientGetSplitTestCookie(cookieName)
 
   if (identifier) return identifier
 
   identifier = userIdentifier || uuidv4()
-  clientSetSplitTestingCookie(cookieName, identifier)
+  clientSetSplitTestCookie(cookieName, identifier)
 
   return identifier
 }
 
-function clientSetSplitTestingCookie(cookieName, identifier) {
+function clientSetSplitTestCookie(cookieName, identifier) {
   if (!BROWSER) return
 
   const expires = new Date(Date.now() + oneYear).toUTCString()
@@ -62,7 +62,7 @@ function clientSetSplitTestingCookie(cookieName, identifier) {
   document.cookie = `${cookieName}=${identifier}; expires=${expires}; path=/`;
 }
 
-function clientGetSplitTestingCookie(cookieName) {
+function clientGetSplitTestCookie(cookieName) {
   if (!BROWSER) return
 
   return document.cookie?.split(';').reduce((r, v) => {

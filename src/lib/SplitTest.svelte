@@ -2,7 +2,7 @@
   import { BROWSER } from 'esm-env'
   import { prng_alea as seedrandom } from 'esm-seedrandom'
   import { getContext, onMount } from 'svelte'
-  import { clientGetSplitTestingIdentifier } from './splitTesting.js'
+  import { clientGetSplitTestIdentifier } from './splitTesting.js'
 
   // Key to identify this split test. This is the name you will see in GTM.
   export let key = 'Some Key'
@@ -14,7 +14,7 @@
   // but they will help you identify the shown variant in GTM.
   export let variants = ['Variant A', 'Variant B']
 
-  const identifier = getContext('splitTestingIdentifier') ?? clientGetSplitTestingIdentifier()
+  const identifier = getContext('splitTestIdentifier') ?? clientGetSplitTestIdentifier()
 
   // Generate a random number based on a seed, meaning it will always be
   // the same outcome as long as the identifier is the same..

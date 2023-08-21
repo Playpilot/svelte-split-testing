@@ -96,14 +96,14 @@
     <p>In your (main) <code>+layout.server.js</code> load function import and set the identifier and pass it along.</p>
 
 <code class="well"><pre>
-import &#123; <mark>serverGetSplitTestingIdentifier</mark> &#125; from <mark class="string">'svelte-split-testing/splitTesting'</mark>
+import &#123; <mark>serverGetSplitTestIdentifier</mark> &#125; from <mark class="string">'svelte-split-testing/splitTesting'</mark>
 
 <mark class="comment">/** @type &#123;import('./$types').LayoutServerLoad&#125; */</mark>
 export async function load(&#123; <mark>cookies</mark> &#125;) &#123;
-  const <mark>splitTestingIdentifier</mark> = <mark>serverGetSplitTestingIdentifier</mark>(<mark>cookies</mark>)
+  const <mark>splitTestIdentifier</mark> = <mark>serverGetSplitTestIdentifier</mark>(<mark>cookies</mark>)
 
   return &#123;
-    <mark>splitTestingIdentifier</mark>,
+    <mark>splitTestIdentifier</mark>,
   &#125;
 &#125;
 </pre></code>
@@ -113,10 +113,10 @@ export async function load(&#123; <mark>cookies</mark> &#125;) &#123;
 
 <code class="well"><pre>
 export async function load(&#123; <mark>data</mark> &#125;) &#123;
-  const &#123; <mark>splitTestingIdentifier</mark> &#125 = data || &#123;&#125
+  const &#123; <mark>splitTestIdentifier</mark> &#125 = data || &#123;&#125
 
   return &#123;
-    <mark>splitTestingIdentifier</mark>,
+    <mark>splitTestIdentifier</mark>,
   &#125;
 &#125;
 </pre></code>
@@ -126,12 +126,12 @@ export async function load(&#123; <mark>data</mark> &#125;) &#123;
 
 <code class="well"><pre>
 &lt;script&gt;
-  import &#123; <mark>clientGetSplitTestingIdentifier</mark> &#125; from <mark class="string">'svelte-split-testing/splitTesting'</mark>
+  import &#123; <mark>clientGetSplitTestIdentifier</mark> &#125; from <mark class="string">'svelte-split-testing/splitTesting'</mark>
   import &#123; <mark>setContext</mark> &#125; from <mark class="string">'svelte'</mark>
 
   export let data
 
-  <mark>setContext</mark>(<mark class="string">'splitTestingIdentifier'</mark>, data?.<mark>splitTestingIdentifier</mark>)
+  <mark>setContext</mark>(<mark class="string">'splitTestIdentifier'</mark>, data?.<mark>splitTestIdentifier</mark>)
 &lt;/script&gt;
 
 &lt;slot /&gt;
@@ -326,23 +326,23 @@ export async function load(&#123; <mark>data</mark> &#125;) &#123;
   <div class="block">
     <h3>Other config options</h3>
 
-    <h4>serverGetSplitTestingIdentifier</h4>
+    <h4>serverGetSplitTestIdentifier</h4>
     <p>This function is used in the set up to set the identifier for SSR. The second parameter in this function is an object of options.<p>
 
     <code class="well">
-      <mark>serverGetSplitTestingIdentifier</mark>(servercookies, &#123; userIdentifier, cookieName &#125;)
+      <mark>serverGetSplitTestIdentifier</mark>(servercookies, &#123; userIdentifier, cookieName &#125;)
     </code>
 
     <p><code>userIdentifier</code> is used to pass an identifier to the function that will be used instead of a random identifier. This way you can make sure a user sees the same page across different devices, as long as they use the same identifier. Be aware that will identifier will be saved as a plain string in a cookie.</p>
     <p><code>cookieName</code> can be used to change the name of the cookie. Defaults to <code>splitTestIdentifier</code></p>
-    <p>If you are setting this as done in the set up, you will need to make sure to pass it along to the client side as well, using <code>clientGetSplitTestingIdentifier</code> with the same options, as a fallback value. This needs to be done when setting the context (refer back to the Set Up section). This is a safety net in case the value was not set as expected.</p>
-    <code class="well">setContext('splitTestingIdentifier', data?.splitTestingIdentifier || <mark>clientGetSplitTestingIdentifier</mark>(&#123; userIdentifier, cookieName &#125;))</code>
+    <p>If you are setting this as done in the set up, you will need to make sure to pass it along to the client side as well, using <code>clientGetSplitTestIdentifier</code> with the same options, as a fallback value. This needs to be done when setting the context (refer back to the Set Up section). This is a safety net in case the value was not set as expected.</p>
+    <code class="well">setContext('splitTestIdentifier', data?.splitTestIdentifier || <mark>clientGetSplitTestIdentifier</mark>(&#123; userIdentifier, cookieName &#125;))</code>
 
-    <h4>clientGetSplitTestingIdentifier</h4>
+    <h4>clientGetSplitTestIdentifier</h4>
     <p>This used to set the identifier client side, this is optional if you are also using SSR. If you are using Svelte without Kit, this will be the only function you use. The first and only parameter is an object of options.<p>
 
     <code class="well">
-      <mark>clientGetSplitTestingIdentifier</mark>(&#123; userIdentifier, cookieName &#125;)
+      <mark>clientGetSplitTestIdentifier</mark>(&#123; userIdentifier, cookieName &#125;)
     </code>
 
     <p><code>userIdentifier</code> is used to pass an identifier to the function that will be used instead of a random identifier. This way you can make sure a user sees the same page across different devices, as long as they use the same identifier. Be aware that will identifier will be saved as a plain string in a cookie.</p>
@@ -365,7 +365,7 @@ export async function load(&#123; <mark>data</mark> &#125;) &#123;
       <code>onView</code> <code>null</code> <div>Optional function to be passed to track views of the current variant. Replaces the default GTM method.</div>
 		</div>
 
-    <h4>serverGetSplitTestingIdentifier</h4>
+    <h4>serverGetSplitTestIdentifier</h4>
 
 		<div class="table">
 			<strong>Property</strong> <strong>Default</strong> <strong>Description</strong>
@@ -376,7 +376,7 @@ export async function load(&#123; <mark>data</mark> &#125;) &#123;
       <code>options.cookieName</code> <code>'splitTestIdentifier'</code> <div>The name of the cookie used to store the split testing identifier.</div>
 		</div>
 
-    <h4>clientGetSplitTestingIdentifier</h4>
+    <h4>clientGetSplitTestIdentifier</h4>
 
 		<div class="table">
 			<strong>Property</strong> <strong>Default</strong> <strong>Description</strong>

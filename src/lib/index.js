@@ -1,4 +1,4 @@
 import SplitTest from "./SplitTest.svelte"
-import { serverGetSplitTestingIdentifier, clientGetSplitTestingIdentifier } from "./splitTesting.js"
+import { serverGetSplitTestIdentifier, clientGetSplitTestIdentifier } from "./splitTesting.js"
 
-export { SplitTest, serverGetSplitTestingIdentifier, clientGetSplitTestingIdentifier }
+export { SplitTest, serverGetSplitTestIdentifier, clientGetSplitTestIdentifier }

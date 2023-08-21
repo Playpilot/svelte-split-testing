@@ -50,7 +50,7 @@ This is a list of all configurable properties for each component and function.
 | variants | ['Variant A', 'Variant B'] | An array of variant names. Can be as many variants as you like. What the names are is not important, but they show up during analytics tracking. |
 | onView | null | Optional function to be passed to track views of the current variant. Replaces the default GTM method. |
 
-##### serverGetSplitTestingIdentifier
+##### serverGetSplitTestIdentifier
 
 | Property | Default | Description |
 | --- | --- | --- |
@@ -59,7 +59,7 @@ This is a list of all configurable properties for each component and function.
 | options.userIdentifier | null | An optional user identifier to use as the identifier. This is used to show a user the same split test across different devices, as long as they have the same identifier. If an identifier was already set before the user identifier |was given the original cookie will be used instead. Be aware that this value will be saved in the cookie as a plain string. Do not use any data that you might not want to be public. |
 | options.cookieName | 'splitTestIdentifier' | The name of the cookie used to store the split testing identifier. |
 
-##### clientGetSplitTestingIdentifier
+##### clientGetSplitTestIdentifier
 
 | Property | Default | Description |
 | --- | --- | --- |
