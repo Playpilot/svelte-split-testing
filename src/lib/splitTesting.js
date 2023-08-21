@@ -55,7 +55,6 @@ export function clientGetSplitTestingIdentifier({ userIdentifier = null, cookieN
 }
 
 function clientSetSplitTestingCookie(cookieName, identifier) {
-  console.log('set')
   if (!BROWSER) return
 
   const expires = new Date(Date.now() + oneYear).toUTCString()
@@ -64,7 +63,6 @@ function clientSetSplitTestingCookie(cookieName, identifier) {
 }
 
 export function clientGetSplitTestingCookie(cookieName) {
-  console.log('get')
   if (!BROWSER) return
 
   return document.cookie?.split(';').reduce((r, v) => {
