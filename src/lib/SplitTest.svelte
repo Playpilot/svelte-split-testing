@@ -26,7 +26,9 @@
   $: variant = force || variants[index]
 
   onMount(() => {
-    if (typeof onView === "function") onView({ key, variant })
+    if (!BROWSER) return
+
+    if (typeof onView === "function") onView({ key, variant, action: 'view' })
     else performAction('view')
   })
 
