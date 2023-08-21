@@ -13,7 +13,7 @@
   // but they will help you identify the shown variant in GTM.
   export let variants = ['Variant A', 'Variant B']
 
-  const identifier = getContext('splitTestingIdentifier')
+  const identifier = getContext('splitTestingIdentifier') ?? clientGetSplitTestingIdentifier()
 
   // Generate a random number based on a seed, meaning it will always be
   // the same outcome as long as the identifier is the same..
