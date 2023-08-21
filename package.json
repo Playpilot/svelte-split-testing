@@ -29,7 +29,9 @@
 		"@sveltejs/adapter-auto": "^2.0.0",
 		"@sveltejs/kit": "^1.20.4",
 		"@sveltejs/package": "^2.0.0",
+		"@testing-library/svelte": "^4.0.3",
 		"esm-seedrandom": "^3.0.5",
+		"jsdom": "^22.1.0",
 		"publint": "^0.1.9",
 		"svelte": "^4.0.5",
 		"svelte-check": "^3.4.3",
@@ -37,17 +39,22 @@
 		"typescript": "^5.0.0",
 		"uuid": "^9.0.0",
 		"vite": "^4.4.2",
-		"vitest": "^0.34.0"
+		"vitest": "^0.34.2"
 	},
 	"description": "Run Split Tests (or A/B tests) with the power of Svelte(Kit)",
-	"keywords": ["Split Test", "Testing", "A/B Test", "AB Test"],
+	"keywords": [
+		"Split Test",
+		"Testing",
+		"A/B Test",
+		"AB Test"
+	],
 	"svelte": "./dist/index.js",
 	"types": "./dist/index.d.ts",
 	"type": "module",
 	"license": "MIT",
 	"repository": {
-    "type": "git",
-    "url": "https://github.com/Playpilot/svelte-split-testing"
-  },
+		"type": "git",
+		"url": "https://github.com/Playpilot/svelte-split-testing"
+	},
 	"homepage": "https://svelte-split-testing.vercel.app/"
 }
