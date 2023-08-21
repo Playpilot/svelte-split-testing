@@ -32,6 +32,7 @@
 
   // Get the "force-split-test" param from the current url to override the shown
   // variant. This only works client side, you might see a different variant SSR.
+  // We're not using $page because this needs to work without Kit as well.
   function getParam() {
     if (!BROWSER) return
 
@@ -46,6 +47,7 @@
   // Send an event to GTM
   function performAction(action = 'click') {
     if (!BROWSER) return
+
     window.dataLayer = window.dataLayer || []
     window.dataLayer.push({ event: 'Split Test', action, label: key, value: variant })
   }
