@@ -30,7 +30,7 @@
       <li>Free, of course</li>
     </ul>
 
-    <p><a target="_blank" href="https://github.com/Mitcheljager/svelte-split-testing">GitHub</a></p>
+    <p><a target="_blank" href="https://github.com/Playpilot/svelte-split-testing">GitHub</a></p>
   </div>
 
   <div class="block">
