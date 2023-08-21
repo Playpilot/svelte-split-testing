@@ -1,6 +1,6 @@
 {
 	"name": "svelte-split-testing",
-	"version": "0.0.1",
+	"version": "1.0.0",
 	"scripts": {
 		"dev": "vite dev",
 		"build": "vite build && npm run package",
@@ -39,7 +39,15 @@
 		"vite": "^4.4.2",
 		"vitest": "^0.34.0"
 	},
+	"description": "Run Split Tests (or A/B tests) with the power of Svelte(Kit)",
+	"keywords": ["Split Test", "Testing", "A/B Test", "AB Test"],
 	"svelte": "./dist/index.js",
 	"types": "./dist/index.d.ts",
-	"type": "module"
+	"type": "module",
+	"license": "MIT",
+	"repository": {
+    "type": "git",
+    "url": "https://github.com/Playpilot/svelte-split-testing"
+  },
+	"homepage": "https://svelte-split-testing.vercel.app/"
 }
