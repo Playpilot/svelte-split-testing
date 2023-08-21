@@ -62,7 +62,7 @@ function clientSetSplitTestingCookie(cookieName, identifier) {
   document.cookie = `${cookieName}=${identifier}; expires=${expires}; path=/`;
 }
 
-export function clientGetSplitTestingCookie(cookieName) {
+function clientGetSplitTestingCookie(cookieName) {
   if (!BROWSER) return
 
   return document.cookie?.split(';').reduce((r, v) => {
