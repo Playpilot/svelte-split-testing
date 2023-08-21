@@ -2,6 +2,7 @@
   import { BROWSER } from 'esm-env'
   import { prng_alea as seedrandom } from 'esm-seedrandom'
   import { getContext, onMount } from 'svelte'
+  import { clientGetSplitTestingIdentifier } from './splitTesting.js'
 
   // Key to identify this split test. This is the name you will see in GTM.
   export let key = 'Some Key'
