@@ -20,10 +20,10 @@ This package works with Svelte and SvelteKit.
 
 Install using Yarn or NPM.
 ```js
-yarn add svelte-split-testing
+yarn add svelte-split-testing --dev
 ```
 ```js
-npm install --save-dev svelte-split-testing
+npm install svelte-split-testing --save-dev
 ```
 
 Include the component in your app.
