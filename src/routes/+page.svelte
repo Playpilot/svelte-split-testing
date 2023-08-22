@@ -599,10 +599,7 @@ export async function load(&#123; <mark>data</mark> &#125;) &#123;
     margin: 0;
     background: var(--bg-body);
     color: var(--text-color);
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
-      'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
-      'Noto Color Emoji';
-    overflow-x: hidden;
+    font-family: 'Poppins', sans-serif;
   }
 
   h1 {
