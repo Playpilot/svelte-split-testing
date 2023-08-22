@@ -27,7 +27,7 @@
       <li>Works with or without Kit</li>
       <li>Works with GTM and GA4, or any other analytics solution</li>
       <li>Lightweight</li>
-      <li>Free, of course</li>
+      <li>It's free!</li>
     </ul>
 
     <div class="buttons">
