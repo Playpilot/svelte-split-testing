@@ -30,7 +30,7 @@
       <li>Free, of course</li>
     </ul>
 
-    <p><a target="_blank" href="https://github.com/Playpilot/svelte-split-testing">GitHub</a></p>
+    <p><a target="_blank" href="https://github.com/Playpilot/svelte-split-testing">GitHub</a> | <a target="_blank" href="https://www.npmjs.com/package/svelte-split-testing">NPM</a></p>
   </div>
 
   <div class="block">
@@ -385,6 +385,10 @@ export async function load(&#123; <mark>data</mark> &#125;) &#123;
       <code>options.userIdentifier</code> <code>null</code> <div>An optional user identifier to use as the identifier. This is used to show a user the same split test across different devices, as long as they have the same identifier. If an identifier was already set before the user identifier was given the original cookie will be used instead. Be aware that this value will be saved in the cookie as a plain string. Do not use any data that you might not want to be public.</div>
       <code>options.cookieName</code> <code>'splitTestIdentifier'</code> <div>The name of the cookie used to store the split testing identifier.</div>
 		</div>
+	</div>
+
+  <div class="block">
+		Developed by <a target="_blank" href="https://github.com/Playpilot">PlayPilot</a>
 	</div>
 </div>
 
