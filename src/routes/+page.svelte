@@ -99,7 +99,7 @@
     <p>In your (main) <code>+layout.server.js</code> load function import and set the identifier and pass it along.</p>
 
 <code class="well"><pre>
-import &#123; <mark>serverGetSplitTestIdentifier</mark> &#125; from <mark class="string">'svelte-split-testing/splitTesting'</mark>
+import &#123; <mark>serverGetSplitTestIdentifier</mark> &#125; from <mark class="string">'svelte-split-testing'</mark>
 
 <mark class="comment">/** @type &#123;import('./$types').LayoutServerLoad&#125; */</mark>
 export async function load(&#123; <mark>cookies</mark> &#125;) &#123;
@@ -129,7 +129,7 @@ export async function load(&#123; <mark>data</mark> &#125;) &#123;
 
 <code class="well"><pre>
 &lt;script&gt;
-  import &#123; <mark>clientGetSplitTestIdentifier</mark> &#125; from <mark class="string">'svelte-split-testing/splitTesting'</mark>
+  import &#123; <mark>clientGetSplitTestIdentifier</mark> &#125; from <mark class="string">'svelte-split-testing'</mark>
   import &#123; <mark>setContext</mark> &#125; from <mark class="string">'svelte'</mark>
 
   export let data
