@@ -10,7 +10,7 @@
   }
 </script>
 
-<title>Svelte Split Testing</title>
+<title>Svelte Split Testing — PlayPilot Open-source Software</title>
 
 <div class="wrapper">
   <header class="header">
