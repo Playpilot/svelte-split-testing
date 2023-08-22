@@ -3,10 +3,10 @@
   import SplitTest from "$lib/SplitTest.svelte"
 
   const colors = {
-    Pink: '#FF73F8',
-    Blue: '#2E80FF',
-    Orange: '#FEA03C',
-    Green: '#08D3C3',
+    Pink: '#d453f7',
+    Blue: '#55cbf2',
+    Yellow: '#f7c74e',
+    Green: '#409b83',
   }
 </script>
 
