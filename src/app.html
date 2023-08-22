@@ -1,12 +1,57 @@
 <!DOCTYPE html>
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" href="%sveltekit.assets%/favicon.png" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		%sveltekit.head%
-	</head>
-	<body data-sveltekit-preload-data="hover">
-		<div>%sveltekit.body%</div>
-	</body>
+<html>
+  <head>
+    <meta charset="utf-8" />
+
+    <meta name="color-scheme" content="dark" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, user-scalable=no"
+    />
+
+    <meta name="description" content="Split tests (or A/B tests) allow you to display different features or variants to test their effectiveness. Unfortunately popular options are very pricey, bloated, and don't work SSR. This package attempts to remedy all of that." />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="#101426" />
+
+    <meta name="theme-color" content="#101426" />
+    <meta
+      property="og:site_name"
+      content="Svelte Split Testing — PlayPilot Open-source Software"
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://svelte-split-testing.playpilot.com/" />
+    <meta property="og:title" content="Svelte Split Testing — PlayPilot Open-source Software" />
+    <meta property="og:description" content="Split tests (or A/B tests) allow you to display different features or variants to test their effectiveness. Unfortunately popular options are very pricey, bloated, and don't work SSR. This package attempts to remedy all of that." />
+    <meta property="og:image" content="/images/movies-and-shows.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta property="fb:app_id" content="1382802492038743" />
+    <meta
+      name="apple-itunes-app"
+      content="app-id=1345884752, affiliate-data=1010lJRD"
+    />
+    <meta name="fo-verify" content="58d0b077-2660-4211-b514-785722fef4b8" />
+    <meta name="verification" content="28e4ee2dc28c5365341175deca844bdc" />
+  
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="icon" type="image/png" href="%sveltekit.assets%/favicon.png" />
+
+    <style type="text/css">
+      @import url('https://fonts.googleapis.com/css?family=Poppins:400,600,700');
+    </style>
+
+    %sveltekit.head%
+  </head>
+
+  <body data-sveltekit-preload-data="hover">
+    <div>%sveltekit.body%</div>
+  </body>
 </html>
