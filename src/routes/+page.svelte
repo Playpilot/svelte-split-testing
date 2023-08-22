@@ -391,7 +391,7 @@ export async function load(&#123; <mark>data</mark> &#125;) &#123;
 	</div>
 
   <div class="block">
-		Developed by <a target="_blank" href="https://github.com/Playpilot">PlayPilot</a>
+		Developed by <a target="_blank" href="https://playpilot.com/">PlayPilot</a>
 	</div>
 </div>
 
