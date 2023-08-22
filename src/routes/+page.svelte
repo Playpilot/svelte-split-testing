@@ -1,5 +1,5 @@
 <script>
-  import { page } from "$app/stores";
+  import { page } from "$app/stores"
   import SplitTest from "$lib/SplitTest.svelte"
 
   const colors = {
@@ -30,7 +30,10 @@
       <li>Free, of course</li>
     </ul>
 
-    <p><a target="_blank" href="https://github.com/Playpilot/svelte-split-testing">GitHub</a> | <a target="_blank" href="https://www.npmjs.com/package/svelte-split-testing">NPM</a></p>
+    <div class="buttons">
+      <a class="button" target="_blank" href="https://github.com/Playpilot/svelte-split-testing">GitHub</a>
+      <a class="button" target="_blank" href="https://www.npmjs.com/package/svelte-split-testing">NPM</a>
+    </div>
   </div>
 
   <div class="block">
@@ -394,25 +397,14 @@ export async function load(&#123; <mark>data</mark> &#125;) &#123;
 
 <style>
 	:global(:root) {
-		--primary: #ff3e00;
-		--primary-light: #ff602b;
-		--text-color: #444;
-		--text-color-light: #999;
-		--text-color-lightest: black;
-		--border-color: #edf3f0;
-		--bg-well: #f6fafd;
-		--bg-body: #fff;
-	}
-
-	@media (prefers-color-scheme: dark) {
-		:global(:root) {
-			--text-color: #b7c0d1;
-			--text-color-light: #8e99af;
-			--text-color-lightest: white;
-			--border-color: #363d49;
-			--bg-well: #21242c;
-			--bg-body: #16181d;
-		}
+		--primary: #fa548a;
+		--primary-light: #f47a8d;
+    --text-color: #bed0de;
+    --text-color-light: #9cb8cd;
+    --text-color-lightest: white;
+    --border-color: #41527c;
+    --bg-well: #162036;
+    --bg-body: #101426;
 	}
 
 	:global(body) {

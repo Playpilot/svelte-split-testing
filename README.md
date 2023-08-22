@@ -14,7 +14,7 @@ This package works with Svelte and SvelteKit.
 - Lightweight
 - Free, of course
 
-**Demo and Docs**: https://svelte-split-testing.pages.dev/
+**Demo and Docs**: https://svelte-split-testing.playpilot.com/
 
 ### Installation
 
@@ -36,7 +36,7 @@ import { SplitTest } from "svelte-split-testing"
 
 ### Configuration
 
-For more configuration refer to the documentation: https://svelte-split-testing.pages.dev/
+For more configuration refer to the documentation: https://svelte-split-testing.playpilot.com/
 
 #### Properties
 
