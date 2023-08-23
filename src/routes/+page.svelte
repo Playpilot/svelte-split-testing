@@ -54,6 +54,8 @@
       show some basics of how it all works, but the sky is the limit.
     </p>
 
+    <p>The important part here is that the results are randomized, but consistent for the same user. SSR and CSR show the same result and revisiting the page will show the same result as the visit before. You can even show the same result for the same user across different devices.</p>
+
     {#key $page.url.searchParams.get('force-split-test')}
       <SplitTest let:variant>
         <h4 class="well">You are currently being shown split test <mark>{variant}</mark></h4>
