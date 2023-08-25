@@ -2,7 +2,7 @@
 
 [![npm version](https://badgen.net/npm/v/svelte-split-testing)](https://www.npmjs.com/package/svelte-split-testing)
 [![npm downloads](https://badgen.net/npm/dt/svelte-split-testing)](https://www.npmjs.com/package/svelte-split-testing)
-[![bundle size](https://badgen.net/bundlephobia/minzip/svelte-split-testing)](https://bundlephobia.com/package/svelte-split-testing)
+[![bundle size](https://img.shields.io/bundlephobia/minzip/svelte-split-testing)](https://bundlephobia.com/package/svelte-split-testing)
 
 Run Split Tests (or A/B tests) with the power of Svelte(Kit). Split tests (or A/B tests) allow you to display different features or variants to test their effectiveness. Unfortunately popular options are very pricey, bloated, and don't work SSR. This package attempts to remedy all of that.
 
