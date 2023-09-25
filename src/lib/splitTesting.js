@@ -74,7 +74,7 @@ function clientGetSplitTestCookie(cookieName) {
 
 /**
  * Generate a random number based on a seed, meaning it will always be
- * the same outcome as long as the identifier is the same..
+ * the same outcome as long as the identifier is the same.
  * The key is also included to prevent one user from always seeing test A
  * for every test case.
  * @param {object} options - Optional parameters.
