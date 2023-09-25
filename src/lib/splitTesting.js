@@ -106,8 +106,6 @@ export function getVariant({ key, variants = [], identifier, force }) {
  * else if (variant === "B") doThingB()
  */
 export function performSplitTestAction({ key = '', action = 'view', variants = [], userIdentifier = null, force = null, trackingFunction = null } = {}) {
-  if (!BROWSER) return
-
   const identifier = clientGetSplitTestIdentifier({ userIdentifier })
   const variant = getVariant({ key, variants, identifier, force })
 
