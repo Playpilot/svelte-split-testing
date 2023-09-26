@@ -1,8 +1,7 @@
 <script>
   import { BROWSER } from 'esm-env'
-  import { prng_alea as seedrandom } from 'esm-seedrandom'
   import { getContext, onMount } from 'svelte'
-  import { clientGetSplitTestIdentifier } from './splitTesting.js'
+  import { clientGetSplitTestIdentifier, getVariant, sendToDataLayer } from './splitTesting.js'
 
   // Key to identify this split test. This is the name you will see in GTM.
   export let key = 'Some Key'
@@ -16,15 +15,8 @@
 
   const identifier = getContext('splitTestIdentifier') ?? clientGetSplitTestIdentifier()
 
-  // Generate a random number based on a seed, meaning it will always be
-  // the same outcome as long as the identifier is the same..
-  // The key is also included to prevent one user from always seeing test A
-  // for every test case.
-  const randomized = seedrandom(identifier + key).quick()
-  const index = Math.floor(randomized * variants.length)
-
   $: force = getParam()
-  $: variant = force || variants[index]
+  $: variant = getVariant({ key, variants, identifier, force })
 
   onMount(() => {
     if (!BROWSER) return
@@ -51,8 +43,7 @@
   function performAction(action = 'click') {
     if (!BROWSER) return
 
-    window.dataLayer = window.dataLayer || []
-    window.dataLayer.push({ event: 'Split Test', action, label: key, value: variant })
+    sendToDataLayer({ action, key, variant })
   }
 </script>
 

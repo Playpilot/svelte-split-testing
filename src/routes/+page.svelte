@@ -1,12 +1,24 @@
 <script>
   import { page } from '$app/stores'
   import SplitTest from '$lib/SplitTest.svelte'
+  import { performSplitTestAction } from '$lib/splitTesting.js'
 
   const colors = {
     Pink: '#d453f7',
     Blue: '#55cbf2',
     Yellow: '#f7c74e',
     Green: '#409b83',
+  }
+
+  function outsideOfComponent() {
+    const force = new URLSearchParams(window.location.search).get('force-split-test')
+    const variant = performSplitTestAction({
+      key: 'Some test key',
+      action: 'click',
+      variants: ['A', 'B'],
+      force,
+      trackingFunction: ({ variant }) => alert(`Performed action for variant "${variant}"`)
+    })
   }
 </script>
 
@@ -513,6 +525,33 @@ export async function load(&#123; <mark>data</mark> &#125;) &#123;
   </div>
 
   <div class="block">
+    <h3>Outside of components</h3>
+
+    <p>In some cases you might want to perform split tests outside of a component, perhaps right inside a javascript file. In that case you can use the <code>performSplitTestAction</code> function.</p>
+
+    <p>This function will return the current variant. It will perform an action when called, sending it to GTM by default.</p>
+
+    <code class="well"
+      ><pre>
+const variant = <mark>performSplitTestAction</mark>(&#123;
+  key: <mark class="string">'Some test key'</mark>,
+  action: <mark class="string">'click'</mark>,
+  variants: [<mark class="string">'A'</mark>, <mark class="string">'B'</mark>],
+  force,
+  trackingFunction: (&#123; variant &#125;) =>
+    alert(`Performed action for variant <mark class="string">"$&#123;variant&#125;"</mark>`)
+&#125;)
+
+if (variant === <mark class="string">"A"</mark>) doThingA()
+else if (variant === <mark class="string">"B"</mark>) doThingB()
+</pre></code>
+
+    <p>
+      <button class="button" on:click={outsideOfComponent}>Perform action outside of component</button>
+    </p>
+  </div>
+
+  <div class="block">
     <h2>Properties</h2>
 
     <p>This is a list of all configurable properties for each component and function.</p>
@@ -576,6 +615,20 @@ export async function load(&#123; <mark>data</mark> &#125;) &#123;
       </div>
       <code>options.cookieName</code> <code>'splitTestIdentifier'</code>
       <div>The name of the cookie used to store the split testing identifier.</div>
+    </div>
+
+    <h4>performSplitTestAction</h4>
+
+    <div class="table">
+      <strong>Property</strong> <strong>Default</strong> <strong>Description</strong>
+
+      <code>options</code> <code>null</code> <div>Optional parameters</div>
+      <code>options.key</code> <code>''</code> <div>Key used to identify the current test</div>
+      <code>options.action</code> <code>'view'</code> <div>Action send to analytics tracking</div>
+      <code>options.variants</code> <code>[]</code> <div>Array of strings with all possible variants</div>
+      <code>options.userIdentifier</code> <code>null</code> <div>Optional user identifier to override the cookie identifier</div>
+      <code>options.force</code> <code>null</code> <div>Force a particular split test by string.</div>
+      <code>options.trackingFunction</code> <code>null</code> <div>Function to override the default GTM data layer tracking. <code>&#123; action, key, variant &#125;</code> is passed as the first and only parameter.</div>
     </div>
   </div>
 
