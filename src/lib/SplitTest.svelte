@@ -3,6 +3,8 @@
   import { getContext, onMount } from 'svelte'
   import { clientGetSplitTestIdentifier, getVariant, sendToDataLayer } from './splitTesting.js'
 
+  const identifier = getContext('splitTestIdentifier') ?? clientGetSplitTestIdentifier()
+
   // Key to identify this split test. This is the name you will see in GTM.
   export let key = 'Some Key'
   // Optional function to be calling the view tracking action to override
@@ -13,7 +15,8 @@
   // but they will help you identify the shown variant in GTM.
   export let variants = ['Variant A', 'Variant B']
 
-  const identifier = getContext('splitTestIdentifier') ?? clientGetSplitTestIdentifier()
+  // Current variant. This is exported to be used with `bind:variant`
+  export let variant = getVariant({ key, variants, identifier })
 
   $: force = getParam()
   $: variant = getVariant({ key, variants, identifier, force })
