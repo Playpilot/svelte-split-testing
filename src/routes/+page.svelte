@@ -549,6 +549,17 @@ else if (variant === <mark class="string">"B"</mark>) doThingB()
     <p>
       <button class="button" on:click={outsideOfComponent}>Perform action outside of component</button>
     </p>
+
+    <p>Additionally the slot prop <code>code</code> can be bound to a variant, allowing it to be re-used for things outside of the component.</p>
+
+    <code class="well"
+      ><pre>
+&lt;script&gt;
+  let <mark>variant</mark>
+&lt;/script&gt;
+
+&lt;<mark>SplitTest</mark> bind:<mark>variant</mark> /&gt;
+</pre></code>
   </div>
 
   <div class="block">
