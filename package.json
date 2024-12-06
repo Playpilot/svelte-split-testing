@@ -1,6 +1,6 @@
 {
 	"name": "svelte-split-testing",
-	"version": "1.1.3",
+	"version": "2.0.0",
 	"scripts": {
 		"dev": "vite dev",
 		"build": "vite build && npm run package",
@@ -22,25 +22,28 @@
 		"!dist/**/*.test.*",
 		"!dist/**/*.spec.*"
 	],
-	"peerDependencies": {
-		"svelte": "^4.0.0"
-	},
 	"devDependencies": {
-		"@sveltejs/adapter-auto": "^2.0.0",
-		"@sveltejs/adapter-cloudflare": "^2.3.2",
-		"@sveltejs/kit": "^1.20.4",
-		"@sveltejs/package": "^2.0.0",
-		"@testing-library/svelte": "^4.0.3",
+		"@sveltejs/adapter-auto": "^3.0.0",
+		"@sveltejs/adapter-cloudflare": "^4.8.0",
+		"@sveltejs/kit": "^2.5.27",
+		"@sveltejs/vite-plugin-svelte": "^4.0.0",
+		"@types/eslint": "^9.6.0",
+		"@testing-library/svelte": "^5.2.6",
 		"esm-seedrandom": "^3.0.5",
+		"eslint": "^9.7.0",
+		"eslint-config-prettier": "^9.1.0",
+		"eslint-plugin-svelte": "^2.45.1",
 		"jsdom": "^22.1.0",
+		"globals": "^15.0.0",
+		"prettier": "^3.3.2",
+		"prettier-plugin-svelte": "^3.2.6",
 		"publint": "^0.1.9",
-		"svelte": "^4.0.5",
-		"svelte-check": "^3.4.3",
-		"tslib": "^2.4.1",
-		"typescript": "^5.0.0",
+		"svelte": "^5.1.16",
+		"svelte-check": "^4.0.0",
+		"typescript": "^5.5.0",
 		"uuid": "^9.0.0",
-		"vite": "^4.4.2",
-		"vitest": "^0.34.2"
+		"vite": "^5.4.4",
+		"vitest": "^2.1.0"
 	},
 	"description": "Run Split Tests (or A/B tests) with the power of Svelte(Kit)",
 	"keywords": [
