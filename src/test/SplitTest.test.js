@@ -1,4 +1,4 @@
-import { render } from '@testing-library/svelte'
+import { render } from '@testing-library/svelte/svelte5'
 import { describe, expect, it } from 'vitest'
 
 import SplitTestTest from './SplitTestTest.svelte'

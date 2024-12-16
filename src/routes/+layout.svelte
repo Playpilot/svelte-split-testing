@@ -1,9 +1,9 @@
 <script>
   import { setContext } from 'svelte'
 
-  export let data
+  const { data, children } = $props()
 
   setContext('splitTestIdentifier', data?.splitTestIdentifier)
 </script>
 
-<slot />
+{@render children?.()}

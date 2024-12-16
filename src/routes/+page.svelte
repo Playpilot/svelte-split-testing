@@ -12,7 +12,8 @@
 
   function outsideOfComponent() {
     const force = new URLSearchParams(window.location.search).get('force-split-test')
-    const variant = performSplitTestAction({
+
+    performSplitTestAction({
       key: 'Some test key',
       action: 'click',
       variants: ['A', 'B'],
@@ -69,9 +70,11 @@
     <p>The important part here is that the results are randomized, but consistent for the same user. SSR and CSR show the same result and revisiting the page will show the same result as the visit before. You can even show the same result for the same user across different devices.</p>
 
     {#key $page.url.searchParams.get('force-split-test')}
-      <SplitTest let:variant>
-        <h4 class="well">You are currently being shown split test <mark>{variant}</mark></h4>
-      </SplitTest>
+      <SplitTest >
+        {#snippet children({ variant })}
+                <h4 class="well">You are currently being shown split test <mark>{variant}</mark></h4>
+                      {/snippet}
+            </SplitTest>
     {/key}
 
     <p>
@@ -89,9 +92,11 @@
       </div>
 
       {#key $page.url.searchParams.get('force-split-test')}
-        <SplitTest let:variant>
-          <strong>{variant}</strong> is showing
-        </SplitTest>
+        <SplitTest >
+          {#snippet children({ variant })}
+                    <strong>{variant}</strong> is showing
+                            {/snippet}
+                </SplitTest>
       {/key}
     </div>
 
@@ -115,9 +120,11 @@
       </div>
 
       {#key $page.url.searchParams.get('force-split-test')}
-        <SplitTest variants={Object.keys(colors)} let:variant>
-          <strong style:color={colors[variant]}>{variant}</strong> is showing
-        </SplitTest>
+        <SplitTest variants={Object.keys(colors)} >
+          {#snippet children({ variant })}
+                    <strong style:color={colors[variant]}>{variant}</strong> is showing
+                            {/snippet}
+                </SplitTest>
       {/key}
     </div>
   </div>
@@ -547,7 +554,7 @@ else if (variant === <mark class="string">"B"</mark>) doThingB()
 </pre></code>
 
     <p>
-      <button class="button" on:click={outsideOfComponent}>Perform action outside of component</button>
+      <button class="button" onclick={outsideOfComponent}>Perform action outside of component</button>
     </p>
 
     <p>Additionally the slot prop <code>variant</code> can be bound to a variable, allowing it to be re-used for things outside of the component.</p>

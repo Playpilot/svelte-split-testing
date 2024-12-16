@@ -3,23 +3,28 @@
   import { getContext, onMount } from 'svelte'
   import { clientGetSplitTestIdentifier, getVariant, sendToDataLayer } from './splitTesting.js'
 
+  /**
+   * @typedef {Object} Props
+   * @property {string} [key] - Key to identify this split test. This is the name you will see in GTM.
+   * @property {function|null} [onView] - Optional function to be calling the view tracking action to override the default GTM action
+   * @property {string[]} [variants] - Different variants to be used in the split test. The actual names don't matter, but they will help you identify the shown variant in GTM.
+   * @property {string} [variant] - Current variant. This is exported to be used with `bind:variant`
+   * @property {import('svelte').Snippet<[any]>} [children]
+   */
+
+  /** @type {Props} */
+  let {
+    key = 'Some Key',
+    onView = null,
+    variants = ['Variant A', 'Variant B'],
+    variant = $bindable(''),
+    children
+  } = $props()
+
   const identifier = getContext('splitTestIdentifier') ?? clientGetSplitTestIdentifier()
+  const force = getParam()
 
-  // Key to identify this split test. This is the name you will see in GTM.
-  export let key = 'Some Key'
-  // Optional function to be calling the view tracking action to override
-  // the default GTM action
-  export let onView = null
-
-  // Different variants to be used in the split test. The actual names don't matter,
-  // but they will help you identify the shown variant in GTM.
-  export let variants = ['Variant A', 'Variant B']
-
-  // Current variant. This is exported to be used with `bind:variant`
-  export let variant = getVariant({ key, variants, identifier })
-
-  $: force = getParam()
-  $: variant = getVariant({ key, variants, identifier, force })
+  variant = getVariant({ key, variants, identifier, force })
 
   onMount(() => {
     if (!BROWSER) return
@@ -50,4 +55,4 @@
   }
 </script>
 
-<slot {variant} {performAction} />
+{@render children?.({ variant, performAction })}
