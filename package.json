@@ -2,8 +2,8 @@
 	"name": "svelte-split-testing",
 	"version": "2.0.0",
 	"engines": {
-    "node": "20 || >=22"
-  },
+		"node": "20 || >=22"
+	},
 	"scripts": {
 		"dev": "vite dev",
 		"build": "vite build && npm run package",
@@ -29,15 +29,16 @@
 		"@sveltejs/adapter-auto": "^3.0.0",
 		"@sveltejs/adapter-cloudflare": "^4.8.0",
 		"@sveltejs/kit": "^2.5.27",
+		"@sveltejs/package": "^2.3.7",
 		"@sveltejs/vite-plugin-svelte": "^4.0.0",
-		"@types/eslint": "^9.6.0",
 		"@testing-library/svelte": "^5.2.6",
-		"esm-seedrandom": "^3.0.5",
+		"@types/eslint": "^9.6.0",
 		"eslint": "^9.7.0",
 		"eslint-config-prettier": "^9.1.0",
 		"eslint-plugin-svelte": "^2.45.1",
-		"jsdom": "^22.1.0",
+		"esm-seedrandom": "^3.0.5",
 		"globals": "^15.0.0",
+		"jsdom": "^22.1.0",
 		"prettier": "^3.3.2",
 		"prettier-plugin-svelte": "^3.2.6",
 		"publint": "^0.1.9",
