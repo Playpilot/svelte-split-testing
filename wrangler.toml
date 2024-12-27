@@ -1,0 +1,7 @@
+[dev]
+port = 5173
+local_protocol = "http"
+upstream_protocol = "https"
+
+[build]
+command = "npm ci && npm run build"
